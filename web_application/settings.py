@@ -25,6 +25,8 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = ['localhost',
                  '127.0.0.1']
 
+CSRF_TRUSTED_ORIGINS = ['https://vortexgroup.com.br']
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -52,7 +54,8 @@ ROOT_URLCONF = 'web_application.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['templates',
+                 os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
